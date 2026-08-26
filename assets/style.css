@@ -225,9 +225,7 @@ table tr:hover td {
     background: var(--bg-void);
 }
 
-.leaflet-tile {
-    filter: brightness(0.25) invert(1) contrast(2.5) grayscale(1) !important;
-}
+
 
 .leaflet-container {
     background: var(--bg-void) !important;
