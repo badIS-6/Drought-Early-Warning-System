@@ -4,7 +4,6 @@ let historyChart;
 let latestGovData = {}; 
 let nameLookup = {}; 
 
-// A dictionary to catch all the different ways Tunisian governorates are spelled
 const tunisiaAliases = {
     "elkef": "kef",
     "alkef": "kef",
@@ -61,11 +60,8 @@ loadDashboard();
 function initializeMap(){
     map = L.map("map").setView([34.1, 9.5], 7);
     L.tileLayer(
-        "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
-        { 
-            maxZoom: 19,
-            attribution: "© OpenStreetMap" 
-        }
+        "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+        { attribution: "© OpenStreetMap" }
     ).addTo(map);
 }
 
