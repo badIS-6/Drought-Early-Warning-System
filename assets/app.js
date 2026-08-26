@@ -61,8 +61,11 @@ loadDashboard();
 function initializeMap(){
     map = L.map("map").setView([34.1, 9.5], 7);
     L.tileLayer(
-        "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-        { attribution: "© OpenStreetMap" }
+        "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+        { 
+            maxZoom: 19,
+            attribution: "© OpenStreetMap" 
+        }
     ).addTo(map);
 }
 
