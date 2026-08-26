@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
+
+:root {
+    --bg-void: #000000;         
+    --bg-surface: #080808;       
+    --bg-card: #000000;
+    --accent-green: #a7f3d0;     
+    --text-primary: #ededed;
+    --text-muted: #737373;
+    
+    --font-ui: 'Inter', system-ui, sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+}
+
+* { 
+    box-sizing: border-box; 
+}
+
+html, body { 
+    margin: 0; 
+    font-family: var(--font-ui); 
+    background-color: var(--bg-void); 
+    color: var(--text-primary);
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    
+    /* Cinematic film/digital grain overlay */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+}
+
+/* --- CINEMATIC HEADER --- */
+#header { 
+    height: 65px; 
+    background: var(--bg-void);
+    color: var(--text-primary); 
+    display: flex; 
+    align-items: center; 
+    padding: 0 25px; 
+    font-family: var(--font-mono);
+    font-size: 13px; 
+    font-weight: 500; 
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--border-line);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+#header::before {
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 14px;
+    background: var(--accent-green);
+    margin-right: 15px;
+    animation: terminalBlink 1s step-end infinite;
+}
+
+@keyframes terminalBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+#header a {
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: color 0.2s ease;
+}
+
+#header a:hover {
+    color: var(--accent-green);
+}
+
+#main { 
+    display: flex; 
+    height: calc(100vh - 65px); 
+    width: 100vw;
+}
+
+/* --- MINIMALIST SIDEBAR --- */
+#sidebar { 
+    width: 440px; 
+    overflow-y: auto; 
+    background: var(--bg-surface);
+    border-right: 1px solid var(--border-line); 
+    padding: 20px; 
+    z-index: 10;
+}
+
+#sidebar::-webkit-scrollbar {
+    width: 2px;
+}
+#sidebar::-webkit-scrollbar-track {
+    background: var(--bg-void);
+}
+#sidebar::-webkit-scrollbar-thumb {
+    background: var(--border-line);
+}
+#sidebar::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-green);
+}
+
+.card { 
+    background: var(--bg-card); 
+    border: 1px solid var(--border-line); 
+    border-radius: 0px; /* Sharp corners, no plastic rounding */
+    padding: 25px 20px; 
+    margin-bottom: 20px; 
+    position: relative;
+    transition: border-color 0.3s ease;
+}
+
+.card:hover {
+    border-color: var(--border-hover);
+}
+
+/* Top-left screenwriting bracket accent */
+.card::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    width: 15px;
+    height: 15px;
+    border-top: 1px solid var(--accent-green);
+    border-left: 1px solid var(--accent-green);
+}
+
+.card h3 { 
+    margin-top: 0; 
+    color: var(--text-primary);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.card p {
+    color: var(--text-muted);
+    font-size: 13px;
+    font-weight: 300;
+    margin: 12px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card p b {
+    color: var(--text-primary);
+    font-weight: 400;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.card p span {
+    font-family: var(--font-mono);
+    color: var(--accent-green);
+    font-weight: 500;
+    font-size: 13px;
+}
+
+table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    margin-top: 15px;
+}
+
+table td { 
+    padding: 10px 4px; 
+    border-bottom: 1px dotted var(--border-line); 
+    font-size: 12.5px;
+    font-weight: 300;
+}
+
+table tr td:first-child {
+    color: var(--text-muted);
+}
+
+table tr td:last-child {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    color: var(--accent-green);
+    text-align: right;
+    letter-spacing: 0.5px;
+}
+
+table tr:hover td {
+    border-bottom: 1px dotted var(--text-muted);
+    color: var(--text-primary);
+}
+
+#gov-panel h2 {
+    font-family: var(--font-mono);
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-top: 0;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* --- CHART STYLING --- */
+#chart-container { 
+    height: 220px; 
+    margin-top: 25px; 
+    background: var(--bg-void);
+    border: 1px solid var(--border-line);
+    padding: 15px;
+}
+
+#map { 
+    flex: 1; 
+    background: var(--bg-void);
+}
+
+.leaflet-tile {
+    filter: brightness(0.25) invert(1) contrast(2.5) grayscale(1) !important;
+}
+
+.leaflet-container {
+    background: var(--bg-void) !important;
+    font-family: var(--font-ui) !important;
+}
+
+.leaflet-tooltip {
+    background: var(--bg-void) !important;
+    border: 1px solid var(--accent-green) !important;
+    color: var(--accent-green) !important;
+    font-family: var(--font-mono) !important;
+    font-size: 11px !important;
+    letter-spacing: 1px !important;
+    text-transform: uppercase;
+    border-radius: 0px !important; /* Sharp corners */
+    box-shadow: none !important;
+}
