@@ -1,10 +1,10 @@
 # Drought Early Warning System
-<img width="1544" height="904" alt="image" src="https://github.com/user-attachments/assets/8aab6147-d7ee-42ec-9941-cac9d8bbd9f9" />
 
 ## 1. Overview
 This project implements the **data-processing and analytical backend** of a Tunisia-focused **Drought Early Warning System** and **Drought Risk & Impact Assessment**.
-
 Demo link: https://badis-6.github.io/Drought-Early-Warning-System/
+
+<img width="1544" height="904" alt="image" src="https://github.com/user-attachments/assets/8aab6147-d7ee-42ec-9941-cac9d8bbd9f9" />
 
 
 # 2. Project Context
