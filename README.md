@@ -1,25 +1,13 @@
 # Drought Early Warning System
 
-## 1. Overview
+## Overview
 This project implements the **data-processing and analytical backend** of a Tunisia-focused **Drought Early Warning System** and **Drought Risk & Impact Assessment**.
 Demo link: https://badis-6.github.io/Drought-Early-Warning-System/
 
 <img width="1544" height="904" alt="image" src="https://github.com/user-attachments/assets/8aab6147-d7ee-42ec-9941-cac9d8bbd9f9" />
 
 
-# 2. Project Context
-
-
-
-
-# 3. Main Technologies
-* Google Earth Engine
-* Python
-
-
-
-
-# 4. Input Data
+# Input Data
 
 ## Environmental Dataset
 The main input is:
@@ -30,7 +18,7 @@ tunisia_drought_monthly.csv
 
 
 
-# 5. Governorate Boundaries
+# Governorate Boundaries
 
 ```text
 tunisia_governorates.geojson
@@ -43,7 +31,7 @@ governorates_latest.geojson
 ```
 
 
-# 6. Exposure Data
+# Exposure Data
 
 ```text
 exposure.csv
@@ -59,14 +47,14 @@ Exposure represents **what is located in an area that can be affected by drought
 
 
 
-# 7. Vulnerability Data
+# Vulnerability Data
 
 ```text
 vulnerability.csv
 ```
 
 
-# 8. GEE Processing
+# GEE Processing
 The script generates a monthly governorate-level environmental dataset.
 
 ### Meteorological variables
@@ -106,7 +94,7 @@ VHI
 
 
 
-# 9. Formula:
+# Formula:
 SPEI calculation:
 ```text
 Water balance = precipitation - PET
@@ -168,7 +156,7 @@ SPEI is particularly useful for Tunisia because drought can intensify when tempe
 
 
 
-# 12. NDVI
+# NDVI
 
 NDVI measures vegetation greenness.
 
@@ -180,7 +168,7 @@ Lower-than-normal NDVI can indicate vegetation stress. However, NDVI alone shoul
 
 
 
-# 13.Vegetation Condition Index VCI
+# Vegetation Condition Index VCI
 It compares current vegetation conditions with historical minimum and maximum conditions.
 
 ```text
@@ -191,7 +179,7 @@ Low VCI indicates vegetation conditions are poor relative to historical conditio
 
 
 
-# 14. Temperature Condition Index TCI
+# Temperature Condition Index TCI
 
 It uses land-surface temperature to identify thermal stress.
 
@@ -199,7 +187,7 @@ High temperatures generally correspond to stronger vegetation stress when combin
 
 
 
-# 15. Vegetation Health Index VHI
+# Vegetation Health Index VHI
 The simplified relationship used is:
 
 ```text
@@ -208,7 +196,7 @@ VHI = 0.5 × VCI + 0.5 × TCI
 
 
 
-# 16. Soil Moisture
+# Soil Moisture
 
 ```text
 soil_moisture_anomaly_pct
@@ -218,7 +206,7 @@ This compares current soil moisture against the historical monthly climatology a
 
 
 
-# 17. Drought Hazard
+# Drought Hazard
 
 The system combines multiple indicators into a composite:
 
@@ -241,7 +229,7 @@ This produces hazard_score between approximately 0 and 1
 
 
 
-# 18. Drought Classification
+# Drought Classification
 
 
 ```text
@@ -264,7 +252,7 @@ These are **initial operational thresholds** and not validated regional threshol
 
 
 
-# 19. Drought Persistence
+# Drought Persistence
 
 The system tracks consecutive drought months, for example:
 
@@ -288,7 +276,7 @@ Persistence is important because a single anomalous month is not necessarily a m
 
 
 
-# 20. Drought Trend
+# Drought Trend
 
 The pipeline examines the recent hazard-score trajectory, like:
 
@@ -316,7 +304,7 @@ Deteriorating
 ```
 
 
-# 21. Risk Assessment
+# Risk Assessment
 
 Drought hazard is not the same as drought risk.
 
@@ -361,7 +349,7 @@ Extreme
 ```
 
 
-# 23. Impact Assessment
+# Impact Assessment
 
 The system can produce indicators such as:
 
@@ -395,7 +383,7 @@ SPI = -1.8
 
 
 
-# 24. Running the Pipeline
+# Running the Pipeline
 
 1. In Google Earth Engine (https://code.earthengine.google.com/), upload Tunisia_gov shapefiles and run:
 ```text
@@ -431,7 +419,7 @@ drought_pipeline_2.py
 ```
 
 
-# 25. Main Output
+# Main Output
 The main analytical dataset is:
 ```text
 output/final_drought_monthly.csv
@@ -445,7 +433,7 @@ Governorate × Month
 
 
 
-# 26. Latest Results
+# Latest Results
 
 ```text
 output/final_drought_latest.csv
@@ -453,7 +441,7 @@ output/final_drought_latest.csv
 
 
 
-# 27. GeoJSON Output
+# GeoJSON Output
 
 ```text
 output/governorates_latest.geojson
@@ -465,7 +453,7 @@ This is the primary file that can be connected to a web map.
 
 
 
-# 28. Website API JSON
+# Website API JSON
 
 ```text
 output/latest.json
@@ -483,7 +471,7 @@ risk
 ```
 
 
-# 29. Governorate JSON
+# Governorate JSON
 
 Individual governorate files are generated under:
 
@@ -504,7 +492,7 @@ This makes it easy for the website to load information when a user **clicks** a 
 
 
 
-# 30. Time-Series JSON
+# Time-Series JSON
 
 Files under:
 
@@ -516,7 +504,7 @@ contain the historical evolution of drought.
 
 
 
-# 32. Website Integration
+# Website Integration
 
 The website should primarily consume:
 ```text
@@ -527,7 +515,7 @@ TN_*.json
 
 
 
-# 33. Website Components
+# Website Components
 
 The data produced by this project supports:
 
