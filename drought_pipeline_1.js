@@ -1,6 +1,6 @@
 // TUNISIA DROUGHT EARLY WARNING SYSTEM
 // EXTRACTING ENVIRONMENTAL DATA  with Google Earth Engine (https://code.earthengine.google.com/)
-
+ 
 
 // INPUT: Tunisia_gov shapefiles
 
